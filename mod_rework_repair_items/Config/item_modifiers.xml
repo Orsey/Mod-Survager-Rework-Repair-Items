@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<survager>
+
+	<append xpath="/item_modifiers">
+		
+		<item_modifier name="modArmorHelmetLightBasic" installable_tags="head" modifier_tags="misc,modArmorHelmetLight" blocked_tags="clothing" type="attachment">
+			<!--<property name="UnlockedBy" value="modArmorHelmetLightSchematic,perkArtOfMiningLantern"/>-->
+			<property name="CustomIcon" value="meleeToolFlashlightBasik"/>
+			<property name="Stacknumber" value="1"/> <property name="Group" value="Mods"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Msteel"/>
+			<property name="LightValue" value="0.7"/>
+			
+			<!--<property name="ShowQuality" value="true"/>-->
+			
+			<effect_group>
+				<!--<passive_effect name="DegradationPerUse" operation="base_set" value="5"/>-->
+			</effect_group>
+			
+			<effect_group tiered="false">
+				<passive_effect name="Mobility" operation="perc_add" value="-.07"/>	
+				<passive_effect name="LightIntensity" operation="perc_set" value=".1"/>
+				<passive_effect name="DegradationMax" operation="perc_add" value="-.3"/>
+				<passive_effect name="NoiseMultiplier" operation="perc_add" value=".3"/><display_value name="dNoiseMultiplier" value=".3"/>
+				
+				<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="HeadLight" prefab="Entities/Lighting/miningHelmetLightSource" parentTransform="Spotlight" localPos="0,0,0" localRot="90,0,0"/>
+				<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="HeadLightCam" prefab="Entities/Lighting/miningHelmetLightSource" parentTransform="CameraNode" localPos="0,0,0" localRot="-90,0,0"/>
+				<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLight"/>
+				<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLightCam"/>
+				<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLight" active="@!.IsFPV"/>
+				<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLightCam" active="@.IsFPV"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLight" active="false"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLightCam" active="false"/>
+			</effect_group>
+		</item_modifier>
+		
+	</append>
+	
+</survager>

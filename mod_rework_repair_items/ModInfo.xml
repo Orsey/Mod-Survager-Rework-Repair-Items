@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="Rework Repair Items Modlet" />
+		<Description value="This mod for 7 Days To Die will change requirements to repair weapons, tools and armors. This modlet, among other things, add a rechargeable device for repairing trash turrets, as well as a mod for the base flashlight for armor, which is cheap to craft but has many drawbacks." />
+		<Author value="Survager" />
+		<Version value="1.1" />
+	</ModInfo>
+</xml>
